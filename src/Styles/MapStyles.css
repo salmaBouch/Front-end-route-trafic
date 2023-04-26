@@ -1,0 +1,56 @@
+
+@import url("leaflet/dist/leaflet.css");
+
+
+#root {
+      height: 100vh;
+    }
+ /* sizing of map container*/
+ .leaflet-container {
+  margin-top: 15px;
+  margin-left: 5px;
+  width: 1450px;
+  height: 52vmax;
+ }
+
+
+
+ .map-form {
+  position: absolute;
+  top: 5px;
+  left: 80%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.map-form label,
+.map-form input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.map-form input[type="submit"] {
+  background-color: #0074D9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.map-form input[type="submit"]:hover {
+  background-color: #0063aa;
+}
+
+
+
+
+
+
+
+
+ 

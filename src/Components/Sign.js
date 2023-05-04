@@ -1,6 +1,8 @@
 import * as Components from "../Styles/SignStyles.js";
 import "../Styles/styles.css";
-import React from "react";
+import React, {useState}from "react";
+import {Link} from "react-router-dom"
+
 
 function Sign() {
   const [signIn, toggle] = React.useState(true);
@@ -8,29 +10,31 @@ function Sign() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
-  const [errors, setErrors] = React.useState({});
+  const [errors, setErrors] = React.useState("");
   const [user, setUser] = React.useState({});
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    let data = {
-      name: name,
-      email: email,
-      password: password,
-    };
-    setUser(data);
-    let UserId = JSON.parse(localStorage.getItem("UserId") || "1");
-    data.id = UserId;
-    let user = JSON.parse(localStorage.getItem("user") || "[]");
-    user.push(data);
-    console.log(user);
-    localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("UserId", JSON.stringify(UserId + 1));
-    // Vérifier si les données ont été stockées correctement
-    console.log("Data stored in localStorage:", data);
+  
+      let data = {
+        name: name,
+        email: email,
+        password: password,
+      };
+      setUser(data);
+      let UserId = JSON.parse(localStorage.getItem("UserId") || "1");
+      data.id = UserId;
+      let user = JSON.parse(localStorage.getItem("user") || "[]");
+      user.push(data);
+      console.log(user);
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("UserId", JSON.stringify(UserId + 1));
+      // Vérifier si les données ont été stockées correctement
+      console.log("Data stored in localStorage:", data);
+   
+    
   }
 
   // Fonction pour mettre à jour le champ de formulaire Name
@@ -69,7 +73,8 @@ function Sign() {
     }
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
-    }
+    } 
+    
   };
 
   return (
@@ -143,6 +148,8 @@ function Sign() {
                   >
                     Sign Up
                   </Components.Button>
+                
+                  
                 </Components.Form>
               </Components.SignUpContainer>
             </div>
@@ -169,13 +176,12 @@ function Sign() {
                   />
                  
 
-                  <Components.Anchor href="#">
-                    Forgot your password?
-                  </Components.Anchor>
+                <Link to="/Map">
 
                   <Components.Button type="submit" name="signin"  >
                     Sign In
                   </Components.Button>
+                  </Link>
                 </Components.Form>
               </Components.SignInContainer>
             </div>
